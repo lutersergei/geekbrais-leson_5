@@ -9,7 +9,7 @@ define('YEAR', 60*60*24*365);
 if (isset($_POST['login']))
 {
     $_SESSION['login'] = $_POST['login'];
-    if (isset($_POST['remember']))
+    if (isset($_POST['remember_me']))
     {
         setcookie("login",$_POST['login'],time()+ YEAR);
     }
@@ -29,7 +29,7 @@ if (isset($_POST['login']))
         <input type="text" name="login" placeholder="Имя пользователя">
     </label>
     <label>Запомнить меня
-        <input type="checkbox" name="remember" value="1">
+        <input type="checkbox" name="remember_me" value="1">
     </label> <br>
     <input type="submit" value="Войти">
 </form>
