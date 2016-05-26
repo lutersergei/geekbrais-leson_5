@@ -17,11 +17,12 @@ var_dump($_COOKIE);
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Страница 2</title>
 </head>
 <body>
 <p><a href="Inner_A.php">Страница 1</a></p>
 <p>Страница 2</p>
+<p><a href="Setting.php">Настройки</a></p>
 <form method="post">
     <input type="submit" name="exit" value="Замести следы">
 </form>
