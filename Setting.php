@@ -22,24 +22,20 @@ if (isset($_POST['theme']))
 }
 if (isset($_COOKIE['theme']))
 {
-    if ($_COOKIE['theme']=="Wood Theme")
+    if ($_COOKIE['theme']=="Blue Theme")
     {
         $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
     }
-    if ($_COOKIE['theme']=="Dark Theme")
+    if ($_COOKIE['theme']=="Green Theme")
     {
         $theme="<link rel=\"stylesheet\" href=\"css/style_2.css\">";
     }
-    if ($_COOKIE['theme']=="Theme")
+    if ($_COOKIE['theme']=="Orange Theme")
     {
         $theme="<link rel=\"stylesheet\" href=\"css/style_3.css\">";
     }
 }
 else $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
-//echo "<h1>Session</h1>";
-//var_dump($_SESSION);
-//echo "<h1>Cookies</h1>";
-//var_dump($_COOKIE);
 ?>
 <html lang="ru">
 <head>
@@ -51,7 +47,7 @@ else $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2"></div>
+        <div class="col-md-1"></div>
         <div class="col-md-2">
             <ul class="nav nav-pills nav-stacked">
                 <li role="presentation"><a href="Inner_A.php">Страница 1</a></li>
@@ -60,18 +56,26 @@ else $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
             </ul>
         </div>
         <div class="col-md-6">
-            <form method="post">
+            <h2>Настройки сайта</h2>
+            <p>Выбор темы:</p>
+            <form method="post"
                 <br>
-
-                <input type="submit" class="btn btn-primary" name="theme" value="Wood Theme">
-                <input type="submit" class="btn btn-primary" name="theme" value="Dark Theme">
-                <input type="submit" class="btn btn-primary" name="theme" value="Theme">
+                <input type="submit" class="btn btn-primary" name="theme" value="Blue Theme">
+                <input type="submit" class="btn btn-success" name="theme" value="Green Theme">
+                <input type="submit" class="btn btn-warning" name="theme" value="Orange Theme">
             </form>
+            <h3>Выйти из аккаунта</h3>
             <form method="post">
-                <button class="btn btn-danger" type="submit" name="exit">Выйти</button>
+                <button class="btn btn-danger" type="submit" name="exit">Выход</button>
             </form>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <?php
+            echo "<h3>Session</h3>";
+            var_dump($_SESSION);
+            echo "<h3>Cookies</h3>";
+            var_dump($_COOKIE);?>
+        </div>
     </div>
 </div>
 </body>

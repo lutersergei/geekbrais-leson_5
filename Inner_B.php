@@ -4,23 +4,19 @@ $_SESSION['last_access'] = "Inner_B";
 $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
 if (isset($_COOKIE['theme']))
 {
-    if ($_COOKIE['theme']=="Wood Theme")
+    if ($_COOKIE['theme']=="Blue Theme")
     {
         $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
     }
-    if ($_COOKIE['theme']=="Dark Theme")
+    if ($_COOKIE['theme']=="Green Theme")
     {
         $theme="<link rel=\"stylesheet\" href=\"css/style_2.css\">";
     }
-    if ($_COOKIE['theme']=="Theme")
+    if ($_COOKIE['theme']=="Orange Theme")
     {
         $theme="<link rel=\"stylesheet\" href=\"css/style_3.css\">";
     }
 }
-//echo "<h1>Session</h1>";
-//var_dump($_SESSION);
-//echo "<h1>Cookies</h1>";
-//var_dump($_COOKIE);
 ?>
 <html lang="ru">
 <head>
@@ -32,7 +28,7 @@ if (isset($_COOKIE['theme']))
 <body>
 <div class="container-fluid">
 <div class="row">
-    <div class="col-md-2"></div>
+    <div class="col-md-1"></div>
     <div class="col-md-2">
         <ul class="nav nav-pills nav-stacked">
             <li role="presentation"><a href="Inner_A.php">Страница 1</a></li>
@@ -40,8 +36,9 @@ if (isset($_COOKIE['theme']))
             <li role="presentation"><a href="Setting.php">Настройки</a></li>
         </ul>
     </div>
-    <div class="col-md-6">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad culpa exercitationem officiis quam
+    <div class="col-md-6 modal-content">
+        <p class="bg-primary">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Accusantium ad culpa exercitationem officiis quam
             qui sunt tempora tempore vel, velit. Animi, provident quod. Aspernatur distinctio dolore dolorem
             exercitationem ipsa iste neque repellat? Fuga harum iusto nam natus obcaecati, perspiciatis! A architecto
             beatae ex facere facilis perspiciatis quo rem rerum voluptates!</p>
@@ -62,7 +59,12 @@ if (isset($_COOKIE['theme']))
             deserunt dolorem, doloremque dolores doloribus eaque error et fugit harum labore, laboriosam maiores nihil
             possimus provident quidem reiciendis, temporibus totam ut veritatis voluptate!</p>
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-md-3"><?php
+        echo "<h3>Session</h3>";
+        var_dump($_SESSION);
+        echo "<h3>Cookies</h3>";
+        var_dump($_COOKIE);?>
+    </div>
 </div>
 </div>
 </body>

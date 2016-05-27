@@ -24,27 +24,4 @@ elseif (isset($_COOKIE['login']))
     die();
 }
 else header("Location: Registration.php");
-//if (isset($_SESSION['login']))
-//{
-//    if ($_SESSION['last_access']=='Inner_A')
-//    {
-//        header("Location: Inner_A.php");
-//    }
-//    if ($_SESSION['last_access']=='Inner_B')
-//    {
-//        header("Location: Inner_B.php");
-//    }
-//    else header("Location: Inner_A.php");
-//
-//}
-//else
-//{
-//    if (isset($_COOKIE['login']))
-//    {
-//        $_SESSION['login'] = $_COOKIE['login'];
-//        header("Location: index.php");
-//        die();
-//    }
-//    else header("Location: registration.php");
-//}
 ?>

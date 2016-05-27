@@ -1,9 +1,5 @@
 <?php
-//session_start();
-//echo "<h1>Session</h1>";
-//var_dump($_SESSION);
-//echo "<h1>Cookies</h1>";
-//var_dump($_COOKIE);
+session_start();
 define('GUEST', 'Гость');
 define('YEAR', 60*60*24*365);
 if (isset($_POST['login']))
@@ -18,20 +14,19 @@ if (isset($_POST['login']))
 $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
 if (isset($_COOKIE['theme']))
 {
-    if ($_COOKIE['theme']=="Wood Theme")
+    if ($_COOKIE['theme']=="Blue Theme")
     {
         $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
     }
-    if ($_COOKIE['theme']=="Dark Theme")
+    if ($_COOKIE['theme']=="Green Theme")
     {
         $theme="<link rel=\"stylesheet\" href=\"css/style_2.css\">";
     }
-    if ($_COOKIE['theme']=="Theme")
+    if ($_COOKIE['theme']=="Orange Theme")
     {
         $theme="<link rel=\"stylesheet\" href=\"css/style_3.css\">";
     }
 }
-
 ?>
 <!doctype html>
 <html lang="ru">
@@ -53,7 +48,7 @@ if (isset($_COOKIE['theme']))
         </div>
         <div class="form-group">
             <label class="sr-only" for="password">Password</label>
-            <input type="password" class="form-control" name="password" placeholder="Password">
+            <input type="password" class="form-control" disabled="disabled" name="password" placeholder="Password">
         </div>
         <div class="checkbox">
             <label>
@@ -64,7 +59,12 @@ if (isset($_COOKIE['theme']))
     </form>
     </section>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-4"><?php
+        echo "<h3>Session</h3>";
+        var_dump($_SESSION);
+        echo "<h3>Cookies</h3>";
+        var_dump($_COOKIE);?>
+    </div>
 </div>
 </body>
 </html>

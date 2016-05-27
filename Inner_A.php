@@ -3,24 +3,20 @@ session_start();
 $_SESSION['last_access'] = "Inner_A";
 if (isset($_COOKIE['theme']))
 {
-    if ($_COOKIE['theme']=="Wood Theme")
+    if ($_COOKIE['theme']=="Blue Theme")
     {
         $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
     }
-    if ($_COOKIE['theme']=="Dark Theme")
+    if ($_COOKIE['theme']=="Green Theme")
     {
         $theme="<link rel=\"stylesheet\" href=\"css/style_2.css\">";
     }
-    if ($_COOKIE['theme']=="Theme")
+    if ($_COOKIE['theme']=="Orange Theme")
     {
         $theme="<link rel=\"stylesheet\" href=\"css/style_3.css\">";
     }
 }
 else $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
-//echo "<h1>Session</h1>";
-//var_dump($_SESSION);
-//echo "<h1>Cookies</h1>";
-//var_dump($_COOKIE);
 ?>
 <!doctype html>
 <html lang="ru">
@@ -33,7 +29,7 @@ else $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
 <body>
 <div class="container-fluid">
 <div class="row">
-    <div class="col-md-2"></div>
+    <div class="col-md-1"></div>
     <div class="col-md-2">
         <ul class="nav nav-pills nav-stacked">
             <li role="presentation" class="active"><a href="#">Страница 1</a></li>
@@ -41,8 +37,9 @@ else $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
             <li role="presentation"><a href="Setting.php">Настройки</a></li>
         </ul>
     </div>
-    <div class="col-md-6">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda aut doloremque, ducimus enim error
+    <div class="col-md-6 modal-content">
+        <p class="bg-primary">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Amet assumenda aut doloremque, ducimus enim error
             esse et ex exercitationem, explicabo facilis illo ipsa laudantium minima nam nesciunt numquam omnis quas
             quia recusandae reprehenderit similique totam ullam vel, voluptate! Ad amet, consectetur delectus facilis
             labore maxime minus praesentium ratione vel voluptatem.</p>
@@ -63,7 +60,13 @@ else $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
             impedit maxime molestiae natus numquam, optio porro quas, qui quia quidem quo, ratione rem repellat soluta
             ullam vitae. Ab at, suscipit.</p>
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-md-3">
+        <?php
+        echo "<h3>Session</h3>";
+        var_dump($_SESSION);
+        echo "<h3>Cookies</h3>";
+        var_dump($_COOKIE);?>
+    </div>
 </div>
 </div>
 </body>
