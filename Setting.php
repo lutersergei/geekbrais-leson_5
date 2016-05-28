@@ -1,16 +1,16 @@
 <?php
+error_reporting(E_ALL);
 session_start();
+if (!isset($_SESSION['login']))                 //Без входа - эта страница недоступна.
+{
+    header("Location: Registration.php");
+    die();
+}
 $_SESSION['last_access'] = "Setting.php";
 define('YEAR', 60*60*24*365);
-define('GUEST', 'Гость');
 define('THEME_1', "<link rel=\"stylesheet\" href=\"css/style_1.css\">");
 define('THEME_2', "<link rel=\"stylesheet\" href=\"css/style_2.css\">");
 define('THEME_3', "<link rel=\"stylesheet\" href=\"css/style_3.css\">");
-if (isset($_SESSION['login']))
-{
-    $login=$_SESSION['login'];
-}
-else $login=GUEST;
 if (isset($_POST['exit']))
 {
     session_unset();
@@ -64,7 +64,6 @@ else $theme=THEME_1;
             </ul>
         </div>
         <div class="col-md-6">
-            <?php echo "<h2>Привет, {$login}!</h2>"?>
             <h3>Настройки сайта</h3>
             <p>Выбор темы:</p>
             <form method="post"

@@ -1,9 +1,16 @@
 <?php
+error_reporting(E_ALL);
 session_start();
 $_SESSION['last_access'] = "Inner_B.php";
 define('THEME_1', "<link rel=\"stylesheet\" href=\"css/style_1.css\">");
 define('THEME_2', "<link rel=\"stylesheet\" href=\"css/style_2.css\">");
 define('THEME_3', "<link rel=\"stylesheet\" href=\"css/style_3.css\">");
+define('GUEST', 'Гость');
+if (isset($_SESSION['login']))
+{
+    $login=$_SESSION['login'];
+}
+else $login=GUEST;
 if (isset($_COOKIE['theme']))
 {
     if ($_COOKIE['theme']=="Blue Theme")
@@ -40,8 +47,8 @@ else $theme=THEME_1;
         </ul>
     </div>
     <div class="col-md-6 modal-content">
-        <p class="bg-primary">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <p>Accusantium ad culpa exercitationem officiis quam
+        <p class="bg-primary">Hi, <?php echo $login?>!!!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad culpa exercitationem officiis quam
             qui sunt tempora tempore vel, velit. Animi, provident quod. Aspernatur distinctio dolore dolorem
             exercitationem ipsa iste neque repellat? Fuga harum iusto nam natus obcaecati, perspiciatis! A architecto
             beatae ex facere facilis perspiciatis quo rem rerum voluptates!</p>
