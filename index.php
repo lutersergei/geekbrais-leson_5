@@ -1,27 +1,15 @@
 <?php
 session_start();
-echo "<h1>Session</h1>";
-var_dump($_SESSION);
-echo "<h1>Cookies</h1>";
-var_dump($_COOKIE);
-if (isset($_SESSION['login'])&&($_SESSION['last_access']))      
-{
-    if ($_SESSION['last_access']=='Inner_A')
-    {
-        header("Location: Inner_A.php");
-    }
-    if ($_SESSION['last_access']=='Inner_B')
-    {
-        header("Location: Inner_B.php");
-    }
-    
-    else header("Location: Setting.php");
+if (isset($_SESSION['login'])&&($_SESSION['last_access']))      //Переадресация на последнюю посещенную страницу происходит
+{                                                               //только если сохранена последняя сессия
+    $location=$_SESSION['last_access'];                         //(думаю в куках хранить последнюю посещенную страницу неоправдано)
+    header("Location: $location");
+    die();
 }
-elseif (isset($_COOKIE['login']))
+elseif (isset($_COOKIE['login']))                   //Если мы выходили из браузера, но не разлогинились, то переход на Первую страницу
 {
     $_SESSION['login'] = $_COOKIE['login'];
     header("Location: Inner_A.php");
     die();
 }
-else header("Location: Registration.php");
-?>
+else header("Location: Registration.php");          //Если разлогинились, то переадресация на страницу регистрации

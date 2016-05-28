@@ -1,7 +1,16 @@
 <?php
 session_start();
+$_SESSION['last_access'] = "Setting.php";
 define('YEAR', 60*60*24*365);
-$_SESSION['last_access'] = "Setting";
+define('GUEST', 'Гость');
+define('THEME_1', "<link rel=\"stylesheet\" href=\"css/style_1.css\">");
+define('THEME_2', "<link rel=\"stylesheet\" href=\"css/style_2.css\">");
+define('THEME_3', "<link rel=\"stylesheet\" href=\"css/style_3.css\">");
+if (isset($_SESSION['login']))
+{
+    $login=$_SESSION['login'];
+}
+else $login=GUEST;
 if (isset($_POST['exit']))
 {
     session_unset();
@@ -9,14 +18,13 @@ if (isset($_POST['exit']))
     if (isset($_COOKIE['login']))
     {
         setcookie("login","",time() - 60);
-       // setcookie("theme","",time() - 60);
     }
     header("Location: index.php");
     die();
 }
 if (isset($_POST['theme']))
 {
-    setcookie("theme",$_POST['theme'],time()+ YEAR);
+    setcookie("theme",$_POST['theme'],time()+YEAR);
     header("Location: Setting.php");
     die();
 }
@@ -24,18 +32,18 @@ if (isset($_COOKIE['theme']))
 {
     if ($_COOKIE['theme']=="Blue Theme")
     {
-        $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
+        $theme=THEME_1;
     }
     if ($_COOKIE['theme']=="Green Theme")
     {
-        $theme="<link rel=\"stylesheet\" href=\"css/style_2.css\">";
+        $theme=THEME_2;
     }
     if ($_COOKIE['theme']=="Orange Theme")
     {
-        $theme="<link rel=\"stylesheet\" href=\"css/style_3.css\">";
+        $theme=THEME_3;
     }
 }
-else $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
+else $theme=THEME_1;
 ?>
 <html lang="ru">
 <head>
@@ -56,7 +64,8 @@ else $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
             </ul>
         </div>
         <div class="col-md-6">
-            <h2>Настройки сайта</h2>
+            <?php echo "<h2>Привет, {$login}!</h2>"?>
+            <h3>Настройки сайта</h3>
             <p>Выбор темы:</p>
             <form method="post"
                 <br>

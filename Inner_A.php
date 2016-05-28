@@ -1,22 +1,25 @@
 <?php
 session_start();
-$_SESSION['last_access'] = "Inner_A";
+$_SESSION['last_access'] = "Inner_A.php";
+define('THEME_1', "<link rel=\"stylesheet\" href=\"css/style_1.css\">");
+define('THEME_2', "<link rel=\"stylesheet\" href=\"css/style_2.css\">");
+define('THEME_3', "<link rel=\"stylesheet\" href=\"css/style_3.css\">");
 if (isset($_COOKIE['theme']))
 {
     if ($_COOKIE['theme']=="Blue Theme")
     {
-        $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
+        $theme=THEME_1;
     }
     if ($_COOKIE['theme']=="Green Theme")
     {
-        $theme="<link rel=\"stylesheet\" href=\"css/style_2.css\">";
+        $theme=THEME_2;
     }
     if ($_COOKIE['theme']=="Orange Theme")
     {
-        $theme="<link rel=\"stylesheet\" href=\"css/style_3.css\">";
+        $theme=THEME_3;
     }
 }
-else $theme="<link rel=\"stylesheet\" href=\"css/style_1.css\">";
+else $theme=THEME_1;
 ?>
 <!doctype html>
 <html lang="ru">
